@@ -1,0 +1,134 @@
+{
+  "project": {
+    "title": "Introduction to Generative AI",
+    "subtitle": "Interactive textbook · v0.4 working draft",
+    "author": "You",
+    "costPerMTokens": 15,
+    "sessionBudget": {
+      "pro": 900000,
+      "max": 3500000
+    }
+  },
+  "sections": {
+    "course-description": {
+      "status": "published",
+      "tokensTarget": 4000,
+      "tokensDone": 4000
+    },
+    "learning-graph": {
+      "status": "reviewed",
+      "tokensTarget": 18000,
+      "tokensDone": 16500
+    },
+    "chapter-structure": {
+      "status": "published",
+      "tokensTarget": 22000,
+      "tokensDone": 22000
+    },
+    "chapter-content": {
+      "countLabel": "15 chapters",
+      "children": [
+        { "n":  1, "title": "What is Generative AI?",                       "status": "published",   "tokens": 32000 },
+        { "n":  2, "title": "A Short History: From Markov to Transformers", "status": "published",   "tokens": 38000 },
+        { "n":  3, "title": "Tokens, Embeddings, and the Vector View",      "status": "published",   "tokens": 42000 },
+        { "n":  4, "title": "Inside a Transformer Block",                   "status": "reviewed",    "tokens": 46000 },
+        { "n":  5, "title": "Pretraining at Scale",                         "status": "reviewed",    "tokens": 44000 },
+        { "n":  6, "title": "Fine-tuning and Instruction Following",        "status": "reviewed",    "tokens": 40000 },
+        { "n":  7, "title": "RLHF and Alignment",                           "status": "drafted",     "tokens": 42000 },
+        { "n":  8, "title": "Prompting as a Programming Model",             "status": "drafted",     "tokens": 36000 },
+        { "n":  9, "title": "Retrieval-Augmented Generation",               "status": "drafted",     "tokens": 38000 },
+        { "n": 10, "title": "Tool Use and Agents",                          "status": "drafted",     "tokens": 40000 },
+        { "n": 11, "title": "Multimodal Models",                            "status": "not-started", "tokens": 44000 },
+        { "n": 12, "title": "Image and Video Generation",                   "status": "not-started", "tokens": 42000 },
+        { "n": 13, "title": "Evaluation and Benchmarks",                    "status": "not-started", "tokens": 36000 },
+        { "n": 14, "title": "Safety, Bias, and Misuse",                     "status": "not-started", "tokens": 38000 },
+        { "n": 15, "title": "Where Generative AI Goes Next",                "status": "not-started", "tokens": 30000 }
+      ]
+    },
+    "microsims": {
+      "countLabel": "50 simulations",
+      "children": [
+        { "n":  1, "title": "Token splitter playground",         "status": "published",   "tokens": 4500 },
+        { "n":  2, "title": "Embedding 2D projector",            "status": "published",   "tokens": 5200 },
+        { "n":  3, "title": "Cosine similarity explorer",        "status": "published",   "tokens": 4800 },
+        { "n":  4, "title": "Attention weight heatmap",          "status": "published",   "tokens": 6000 },
+        { "n":  5, "title": "Softmax temperature dial",          "status": "published",   "tokens": 4400 },
+        { "n":  6, "title": "Greedy vs. beam search",            "status": "published",   "tokens": 5600 },
+        { "n":  7, "title": "Top-k / top-p sampling",            "status": "published",   "tokens": 5400 },
+        { "n":  8, "title": "Next-token probability tree",       "status": "reviewed",    "tokens": 5800 },
+        { "n":  9, "title": "Positional encoding visualizer",    "status": "reviewed",    "tokens": 5200 },
+        { "n": 10, "title": "Multi-head attention dissector",    "status": "reviewed",    "tokens": 6400 },
+        { "n": 11, "title": "Layer norm vs. batch norm",         "status": "reviewed",    "tokens": 4800 },
+        { "n": 12, "title": "Loss surface walker",               "status": "reviewed",    "tokens": 5600 },
+        { "n": 13, "title": "Tokenizer comparison (BPE/SP/WP)",  "status": "reviewed",    "tokens": 5400 },
+        { "n": 14, "title": "Context window slider",             "status": "drafted",     "tokens": 4600 },
+        { "n": 15, "title": "Prompt template builder",           "status": "drafted",     "tokens": 5200 },
+        { "n": 16, "title": "Few-shot example sweeper",          "status": "drafted",     "tokens": 4800 },
+        { "n": 17, "title": "Chain-of-thought toggler",          "status": "drafted",     "tokens": 5000 },
+        { "n": 18, "title": "Self-consistency vote viewer",      "status": "drafted",     "tokens": 4800 },
+        { "n": 19, "title": "Retrieval index inspector",         "status": "drafted",     "tokens": 5400 },
+        { "n": 20, "title": "Chunk-size tradeoff",               "status": "drafted",     "tokens": 4600 },
+        { "n": 21, "title": "Hybrid retrieval (BM25 + dense)",   "status": "drafted",     "tokens": 5200 },
+        { "n": 22, "title": "Reranker score plot",               "status": "drafted",     "tokens": 4800 },
+        { "n": 23, "title": "Tool-calling round trip",           "status": "drafted",     "tokens": 5400 },
+        { "n": 24, "title": "ReAct loop tracer",                 "status": "drafted",     "tokens": 5200 },
+        { "n": 25, "title": "Agent budget governor",             "status": "drafted",     "tokens": 5000 },
+        { "n": 26, "title": "Vision-language grounding demo",    "status": "not-started", "tokens": 4800 },
+        { "n": 27, "title": "CLIP similarity browser",           "status": "not-started", "tokens": 4800 },
+        { "n": 28, "title": "Diffusion noise schedule",          "status": "not-started", "tokens": 4800 },
+        { "n": 29, "title": "Sampler comparison (DDIM/DPM/Euler)","status": "not-started","tokens": 4800 },
+        { "n": 30, "title": "Classifier-free guidance dial",     "status": "not-started", "tokens": 4800 },
+        { "n": 31, "title": "Inpainting mask playground",        "status": "not-started", "tokens": 4800 },
+        { "n": 32, "title": "Video frame interpolator",          "status": "not-started", "tokens": 4800 },
+        { "n": 33, "title": "Audio token autoencoder",           "status": "not-started", "tokens": 4800 },
+        { "n": 34, "title": "RLHF reward sweep",                 "status": "not-started", "tokens": 4800 },
+        { "n": 35, "title": "DPO preference plot",               "status": "not-started", "tokens": 4800 },
+        { "n": 36, "title": "Constitutional AI rule editor",     "status": "not-started", "tokens": 4800 },
+        { "n": 37, "title": "Hallucination spotter",             "status": "not-started", "tokens": 4800 },
+        { "n": 38, "title": "Eval rubric builder",               "status": "not-started", "tokens": 4800 },
+        { "n": 39, "title": "MMLU subject heatmap",              "status": "not-started", "tokens": 4800 },
+        { "n": 40, "title": "Pass@k visualizer",                 "status": "not-started", "tokens": 4800 },
+        { "n": 41, "title": "Cost vs. capability frontier",      "status": "not-started", "tokens": 4800 },
+        { "n": 42, "title": "Latency budgeter",                  "status": "not-started", "tokens": 4800 },
+        { "n": 43, "title": "Quantization tradeoff",             "status": "not-started", "tokens": 4800 },
+        { "n": 44, "title": "Speculative decoding tracer",       "status": "not-started", "tokens": 4800 },
+        { "n": 45, "title": "MoE router visualizer",             "status": "not-started", "tokens": 4800 },
+        { "n": 46, "title": "Long-context retrieval stress test","status": "not-started", "tokens": 4800 },
+        { "n": 47, "title": "Watermarking detector",             "status": "not-started", "tokens": 4800 },
+        { "n": 48, "title": "Jailbreak resistance probe",        "status": "not-started", "tokens": 4800 },
+        { "n": 49, "title": "Bias audit dashboard",              "status": "not-started", "tokens": 4800 },
+        { "n": 50, "title": "Carbon cost estimator",             "status": "not-started", "tokens": 4800 }
+      ]
+    },
+    "stories": {
+      "status": "drafted",
+      "tokensTarget": 60000,
+      "tokensDone": 24000
+    },
+    "glossary": {
+      "status": "drafted",
+      "tokensTarget": 22000,
+      "tokensDone": 9500
+    },
+    "faq": {
+      "status": "not-started",
+      "tokensTarget": 14000,
+      "tokensDone": 0
+    },
+    "quiz": {
+      "status": "drafted",
+      "tokensTarget": 80000,
+      "tokensDone": 18000
+    },
+    "reference": {
+      "status": "not-started",
+      "tokensTarget": 36000,
+      "tokensDone": 0
+    },
+    "teachers-guide": {
+      "status": "not-started",
+      "tokensTarget": 48000,
+      "tokensDone": 0
+    }
+  }
+}

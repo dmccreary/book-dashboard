@@ -1,0 +1,97 @@
+{
+  "constants": {
+    "statusWeight": {
+      "not-started": 0,
+      "drafted": 0.45,
+      "reviewed": 0.80,
+      "published": 1.00
+    },
+    "statusMeta": {
+      "not-started": { "label": "Not started", "dot": "var(--c-gray-300)",  "fg": "var(--c-gray-500)", "bg": "var(--c-gray-50)"  },
+      "drafted":     { "label": "Drafted",     "dot": "var(--c-amber-500)", "fg": "var(--c-amber-700)", "bg": "var(--c-amber-50)" },
+      "reviewed":    { "label": "Reviewed",    "dot": "var(--c-blue-500)",  "fg": "var(--c-blue-700)",  "bg": "var(--c-blue-50)"  },
+      "published":   { "label": "Published",   "dot": "var(--c-green-500)", "fg": "var(--c-green-700)", "bg": "var(--c-green-50)" }
+    }
+  },
+  "steps": [
+    {
+      "id": "course-description",
+      "name": "Course Description",
+      "short": "Description",
+      "description": "The high-level pitch for the textbook: who it's for, what they'll learn, prerequisites, and the throughline that ties chapters together. This is what shows up on a syllabus or course catalog page.",
+      "dependsOn": []
+    },
+    {
+      "id": "learning-graph",
+      "name": "Learning Graph",
+      "short": "Learning Graph",
+      "description": "A directed graph of concepts and their dependencies. Each node is a concept; edges express prerequisite relationships. Drives chapter ordering and the prerequisite hints inside each microsim.",
+      "dependsOn": ["course-description"]
+    },
+    {
+      "id": "chapter-structure",
+      "name": "Chapter Structure",
+      "short": "Chapter Structure",
+      "description": "Outline of all chapters with learning objectives, section breakdowns, and approximate length per chapter. The skeleton everything else hangs on.",
+      "dependsOn": ["learning-graph"]
+    },
+    {
+      "id": "chapter-content",
+      "name": "Chapter Content",
+      "short": "Chapters",
+      "description": "The actual prose, examples, and inline figures for each chapter. This is the bulk of the textbook by token count.",
+      "dependsOn": ["chapter-structure"],
+      "childIdPrefix": "ch"
+    },
+    {
+      "id": "microsims",
+      "name": "Microsims",
+      "short": "Microsims",
+      "description": "Interactive in-browser simulations students can manipulate to build intuition. Each microsim has a config schema, a worked example, and 2-3 guided questions. Token estimates here cover the explanatory copy, not the simulation code.",
+      "dependsOn": ["chapter-structure"],
+      "childIdPrefix": "sim"
+    },
+    {
+      "id": "stories",
+      "name": "Stories",
+      "short": "Stories",
+      "description": "Narrative case studies - one per chapter - that follow recurring characters using the subject in research, design, and engineering settings. They put concepts in context.",
+      "dependsOn": ["chapter-content"]
+    },
+    {
+      "id": "glossary",
+      "name": "Glossary",
+      "short": "Glossary",
+      "description": "Alphabetized definitions of every term introduced in the book, with cross-references to the chapters and microsims where they're used.",
+      "dependsOn": ["chapter-content"]
+    },
+    {
+      "id": "faq",
+      "name": "FAQ",
+      "short": "FAQ",
+      "description": "Frequently asked questions surfaced from beta readers and instructor reviews - the recurring confusions and clarifications that didn't fit cleanly into chapter prose.",
+      "dependsOn": ["chapter-content"]
+    },
+    {
+      "id": "quiz",
+      "name": "Quiz",
+      "short": "Quiz",
+      "description": "Auto-graded check-for-understanding questions at the end of every chapter, plus larger unit assessments.",
+      "dependsOn": ["chapter-content"]
+    },
+    {
+      "id": "reference",
+      "name": "Reference",
+      "short": "Reference",
+      "description": "Appendix material: math primers, notation reference, an annotated bibliography, and a curated list of papers and codebases for further reading.",
+      "dependsOn": ["chapter-content"]
+    },
+    {
+      "id": "teachers-guide",
+      "name": "Teacher's Guide",
+      "short": "Teacher's Guide",
+      "description": "Companion material for instructors: pacing guides, discussion prompts, common misconceptions, suggested in-class activities, and answer keys for the unit assessments.",
+      "dependsOn": ["chapter-content", "quiz"]
+    }
+  ]
+}

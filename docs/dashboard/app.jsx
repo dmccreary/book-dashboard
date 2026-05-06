@@ -1,3 +1,25 @@
+function BookSelector() {
+  const books = window.BOOKS || [];
+  if (books.length < 2) return null;
+  return (
+    <label className="book-select">
+      <span className="book-select-label">Book</span>
+      <select
+        value={window.CURRENT_BOOK}
+        onChange={(e) => {
+          const params = new URLSearchParams(window.location.search);
+          params.set("book", e.target.value);
+          window.location.search = params.toString();
+        }}
+      >
+        {books.map(b => (
+          <option key={b.slug} value={b.slug}>{b.title}</option>
+        ))}
+      </select>
+    </label>
+  );
+}
+
 function App() {
   const [tweaks, setTweak] = useTweaks(window.TWEAK_DEFAULTS);
   const { showTokens, density, plan } = tweaks;
@@ -22,6 +44,7 @@ function App() {
           <div className="brand-mark">IT</div>
           <span>Interactive Textbook Studio</span>
         </div>
+        <BookSelector />
         <div className="topbar-actions">
           <button className="btn">{Icon.eye} Preview book</button>
           <button className="btn primary">{Icon.sparkle} Continue building</button>
@@ -96,4 +119,6 @@ function App() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+window.DATA_READY.then(() => {
+  ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+});
