@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//Users/dan/.claude/skills/book-installer/assets/**)",
+      "Read(//Users/dan/.claude/skills/book-installer/assets/templates/**)"
+    ]
+  }
+}
