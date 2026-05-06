@@ -1,0 +1,101 @@
+{
+  "project": {
+    "title": "Learning Python",
+    "subtitle": "Interactive textbook · v0.1 working draft",
+    "author": "You",
+    "costPerMTokens": 15,
+    "sessionBudget": {
+      "pro": 900000,
+      "max": 3500000
+    }
+  },
+  "sections": {
+    "course-description": {
+      "status": "published",
+      "tokensTarget": 3800,
+      "tokensDone": 3800
+    },
+    "learning-graph": {
+      "status": "drafted",
+      "tokensTarget": 16000,
+      "tokensDone": 7500
+    },
+    "chapter-structure": {
+      "status": "reviewed",
+      "tokensTarget": 18000,
+      "tokensDone": 17000
+    },
+    "chapter-content": {
+      "countLabel": "14 chapters",
+      "children": [
+        { "n":  1, "title": "Setting Up Your Environment", "status": "published",   "tokens": 24000 },
+        { "n":  2, "title": "Values, Types, and Variables","status": "published",   "tokens": 28000 },
+        { "n":  3, "title": "Strings and Text",            "status": "reviewed",    "tokens": 30000 },
+        { "n":  4, "title": "Lists and Tuples",            "status": "reviewed",    "tokens": 32000 },
+        { "n":  5, "title": "Dictionaries and Sets",       "status": "drafted",     "tokens": 30000 },
+        { "n":  6, "title": "Control Flow",                "status": "drafted",     "tokens": 28000 },
+        { "n":  7, "title": "Functions",                   "status": "drafted",     "tokens": 36000 },
+        { "n":  8, "title": "Modules and Imports",         "status": "not-started", "tokens": 26000 },
+        { "n":  9, "title": "File I/O",                    "status": "not-started", "tokens": 28000 },
+        { "n": 10, "title": "Errors and Exceptions",       "status": "not-started", "tokens": 28000 },
+        { "n": 11, "title": "Classes and Objects",         "status": "not-started", "tokens": 38000 },
+        { "n": 12, "title": "Iterators and Generators",    "status": "not-started", "tokens": 32000 },
+        { "n": 13, "title": "Standard Library Tour",       "status": "not-started", "tokens": 30000 },
+        { "n": 14, "title": "Testing and Debugging",       "status": "not-started", "tokens": 32000 }
+      ]
+    },
+    "microsims": {
+      "countLabel": "18 simulations",
+      "children": [
+        { "n":  1, "title": "REPL playground",                "status": "published",   "tokens": 4400 },
+        { "n":  2, "title": "Type-coercion explorer",         "status": "published",   "tokens": 4600 },
+        { "n":  3, "title": "String-slicing visualizer",      "status": "reviewed",    "tokens": 4800 },
+        { "n":  4, "title": "List-method demonstrator",       "status": "reviewed",    "tokens": 5000 },
+        { "n":  5, "title": "Dict lookup animator",           "status": "drafted",     "tokens": 4800 },
+        { "n":  6, "title": "Set-operation diagram",          "status": "drafted",     "tokens": 4400 },
+        { "n":  7, "title": "if/elif/else flow tracer",       "status": "drafted",     "tokens": 4800 },
+        { "n":  8, "title": "for-loop step-through",          "status": "drafted",     "tokens": 4600 },
+        { "n":  9, "title": "while-loop guard checker",       "status": "not-started", "tokens": 4400 },
+        { "n": 10, "title": "Function call-stack viewer",     "status": "not-started", "tokens": 5400 },
+        { "n": 11, "title": "Default-argument trap explorer", "status": "not-started", "tokens": 4800 },
+        { "n": 12, "title": "Module import resolver",         "status": "not-started", "tokens": 4600 },
+        { "n": 13, "title": "File read/write sandbox",        "status": "not-started", "tokens": 5000 },
+        { "n": 14, "title": "Exception-bubbling tracer",      "status": "not-started", "tokens": 4800 },
+        { "n": 15, "title": "Class instance inspector",       "status": "not-started", "tokens": 5400 },
+        { "n": 16, "title": "Generator pull/yield viewer",    "status": "not-started", "tokens": 5000 },
+        { "n": 17, "title": "List vs. generator memory plot", "status": "not-started", "tokens": 4800 },
+        { "n": 18, "title": "pytest assertion runner",        "status": "not-started", "tokens": 5200 }
+      ]
+    },
+    "stories": {
+      "status": "not-started",
+      "tokensTarget": 42000,
+      "tokensDone": 0
+    },
+    "glossary": {
+      "status": "drafted",
+      "tokensTarget": 16000,
+      "tokensDone": 4500
+    },
+    "faq": {
+      "status": "not-started",
+      "tokensTarget": 12000,
+      "tokensDone": 0
+    },
+    "quiz": {
+      "status": "drafted",
+      "tokensTarget": 70000,
+      "tokensDone": 8000
+    },
+    "reference": {
+      "status": "not-started",
+      "tokensTarget": 28000,
+      "tokensDone": 0
+    },
+    "teachers-guide": {
+      "status": "not-started",
+      "tokensTarget": 40000,
+      "tokensDone": 0
+    }
+  }
+}

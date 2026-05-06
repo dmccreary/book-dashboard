@@ -1,0 +1,101 @@
+{
+  "project": {
+    "title": "Algebra Foundations",
+    "subtitle": "Interactive textbook · v0.2 working draft",
+    "author": "You",
+    "costPerMTokens": 15,
+    "sessionBudget": {
+      "pro": 900000,
+      "max": 3500000
+    }
+  },
+  "sections": {
+    "course-description": {
+      "status": "published",
+      "tokensTarget": 3500,
+      "tokensDone": 3500
+    },
+    "learning-graph": {
+      "status": "reviewed",
+      "tokensTarget": 14000,
+      "tokensDone": 12500
+    },
+    "chapter-structure": {
+      "status": "published",
+      "tokensTarget": 16000,
+      "tokensDone": 16000
+    },
+    "chapter-content": {
+      "countLabel": "12 chapters",
+      "children": [
+        { "n":  1, "title": "Numbers, Variables, and Expressions", "status": "published",   "tokens": 26000 },
+        { "n":  2, "title": "Linear Equations and Inequalities",   "status": "published",   "tokens": 30000 },
+        { "n":  3, "title": "Coordinate Plane and Graphing",       "status": "reviewed",    "tokens": 28000 },
+        { "n":  4, "title": "Slope and Linear Functions",          "status": "reviewed",    "tokens": 30000 },
+        { "n":  5, "title": "Systems of Linear Equations",         "status": "drafted",     "tokens": 32000 },
+        { "n":  6, "title": "Exponents and Radicals",              "status": "drafted",     "tokens": 28000 },
+        { "n":  7, "title": "Polynomials",                         "status": "drafted",     "tokens": 30000 },
+        { "n":  8, "title": "Factoring",                           "status": "not-started", "tokens": 28000 },
+        { "n":  9, "title": "Quadratic Equations",                 "status": "not-started", "tokens": 34000 },
+        { "n": 10, "title": "Rational Expressions",                "status": "not-started", "tokens": 30000 },
+        { "n": 11, "title": "Functions and Their Graphs",          "status": "not-started", "tokens": 32000 },
+        { "n": 12, "title": "Word Problems and Modeling",          "status": "not-started", "tokens": 28000 }
+      ]
+    },
+    "microsims": {
+      "countLabel": "20 simulations",
+      "children": [
+        { "n":  1, "title": "Number-line walker",                "status": "published",   "tokens": 4200 },
+        { "n":  2, "title": "Order-of-operations stepper",       "status": "published",   "tokens": 4400 },
+        { "n":  3, "title": "Linear equation balance",           "status": "published",   "tokens": 4800 },
+        { "n":  4, "title": "Inequality region shader",          "status": "reviewed",    "tokens": 4600 },
+        { "n":  5, "title": "Coordinate-plane plotter",          "status": "reviewed",    "tokens": 5000 },
+        { "n":  6, "title": "Slope and intercept dial",          "status": "reviewed",    "tokens": 5200 },
+        { "n":  7, "title": "Two-line intersection finder",      "status": "drafted",     "tokens": 5000 },
+        { "n":  8, "title": "Substitution vs. elimination race", "status": "drafted",     "tokens": 4800 },
+        { "n":  9, "title": "Exponent-rule explorer",            "status": "drafted",     "tokens": 4400 },
+        { "n": 10, "title": "Square-root visualizer",            "status": "drafted",     "tokens": 4400 },
+        { "n": 11, "title": "Polynomial term builder",           "status": "not-started", "tokens": 4600 },
+        { "n": 12, "title": "FOIL animator",                     "status": "not-started", "tokens": 4400 },
+        { "n": 13, "title": "Factor-pair finder",                "status": "not-started", "tokens": 4400 },
+        { "n": 14, "title": "Quadratic-formula dial",            "status": "not-started", "tokens": 5000 },
+        { "n": 15, "title": "Discriminant detector",             "status": "not-started", "tokens": 4400 },
+        { "n": 16, "title": "Parabola transformer",              "status": "not-started", "tokens": 4800 },
+        { "n": 17, "title": "Rational-expression simplifier",    "status": "not-started", "tokens": 4600 },
+        { "n": 18, "title": "Function-machine box",              "status": "not-started", "tokens": 4400 },
+        { "n": 19, "title": "Domain and range highlighter",      "status": "not-started", "tokens": 4400 },
+        { "n": 20, "title": "Word-problem translator",           "status": "not-started", "tokens": 5200 }
+      ]
+    },
+    "stories": {
+      "status": "drafted",
+      "tokensTarget": 36000,
+      "tokensDone": 9000
+    },
+    "glossary": {
+      "status": "drafted",
+      "tokensTarget": 14000,
+      "tokensDone": 7000
+    },
+    "faq": {
+      "status": "not-started",
+      "tokensTarget": 10000,
+      "tokensDone": 0
+    },
+    "quiz": {
+      "status": "drafted",
+      "tokensTarget": 60000,
+      "tokensDone": 14000
+    },
+    "reference": {
+      "status": "not-started",
+      "tokensTarget": 22000,
+      "tokensDone": 0
+    },
+    "teachers-guide": {
+      "status": "not-started",
+      "tokensTarget": 36000,
+      "tokensDone": 0
+    }
+  }
+}

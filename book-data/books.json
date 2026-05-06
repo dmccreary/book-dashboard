@@ -1,0 +1,14 @@
+[
+  {
+    "slug": "algebra-book-status",
+    "title": "Algebra Foundations"
+  },
+  {
+    "slug": "gen-ai-book-status",
+    "title": "Introduction to Generative AI"
+  },
+  {
+    "slug": "learning-python",
+    "title": "Learning Python"
+  }
+]
