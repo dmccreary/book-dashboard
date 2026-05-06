@@ -1,0 +1,1034 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A React-based dashboard for tracking book-writing progress">
+      
+      
+        <meta name="author" content="Dan McCreary">
+      
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.43">
+    
+    
+      
+        <title>Book Progress Dashboard — Specification - Book Progress Dashboard</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.0253249f.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#book-progress-dashboard-specification" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Book Progress Dashboard" class="md-header__button md-logo" aria-label="Book Progress Dashboard" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Book Progress Dashboard
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Book Progress Dashboard — Specification
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Book Progress Dashboard" class="md-nav__button md-logo" aria-label="Book Progress Dashboard" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Book Progress Dashboard
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dashboard/book-dashboard.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Dashboard
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-purpose-and-goals" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Purpose and Goals
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-stakeholders-and-user-roles" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Stakeholders and User Roles
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Glossary
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-architecture-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Architecture Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-data-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Data Model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Data Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#51-workflow-stepsjson-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.1 workflow-steps.json schema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#52-book-status-file-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.2 Book status file schema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#53-booksjson-manifest-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.3 books.json manifest schema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#54-data-merge-dm-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      5.4 Data merge — DM-* requirements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-functional-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      6. Functional Requirements
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Functional Requirements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#61-status-lifecycle-fr-status-" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.1 Status Lifecycle (FR-STATUS-*)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#62-book-loading-and-selection-fr-load-" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.2 Book Loading and Selection (FR-LOAD-*)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#63-header-title-and-overall-progress-fr-header-" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.3 Header — Title and Overall Progress (FR-HEADER-*)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#64-progress-bar-fr-prog-" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.4 Progress Bar (FR-PROG-*)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#65-summary-cards-fr-summary-" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.5 Summary Cards (FR-SUMMARY-*)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#66-overview-grid-and-detail-panel-fr-detail-" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.6 Overview Grid and Detail Panel (FR-DETAIL-*)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#67-run-next-task-fr-next-" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.7 Run Next Task (FR-NEXT-*)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#68-burn-tokens-fr-burn-" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.8 Burn Tokens (FR-BURN-*)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#69-tweaks-panel-fr-tweak-" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.9 Tweaks Panel (FR-TWEAK-*)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#610-url-state-fr-url-" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.10 URL State (FR-URL-*)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#611-build-pipeline-fr-build-" class="md-nav__link">
+    <span class="md-ellipsis">
+      6.11 Build Pipeline (FR-BUILD-*)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-non-functional-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      7. Non-Functional Requirements
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-cost-budget-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      8. Cost / Budget Model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-constraints" class="md-nav__link">
+    <span class="md-ellipsis">
+      9. Constraints
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-non-goals-explicit-exclusions" class="md-nav__link">
+    <span class="md-ellipsis">
+      10. Non-Goals (Explicit Exclusions)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-dependencies-and-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      11. Dependencies and References
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-change-log" class="md-nav__link">
+    <span class="md-ellipsis">
+      12. Change Log
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="book-progress-dashboard-specification">Book Progress Dashboard — Specification</h1>
+<p><strong>Status:</strong> Draft v1
+<strong>Audience:</strong> Engineers extending the dashboard, reviewers evaluating fitness for purpose, and authors of the <a href="acceptance-test-plan.md">acceptance-test-plan.md</a>.
+<strong>Implementation under specification:</strong> <a href="dashboard/">docs/dashboard/</a> (React 18 + Babel-standalone single-page app).</p>
+<p>This is a specification-driven design (SDD) document. Every behavior the dashboard must exhibit is captured here as a numbered requirement that can be traced to a test in the acceptance plan. If the implementation and this document disagree, fix the one that is wrong — they are intended to stay in lockstep.</p>
+<hr />
+<h2 id="1-purpose-and-goals">1. Purpose and Goals</h2>
+<p>The dashboard exists to help authors of intelligent textbooks answer four questions, fast:</p>
+<ol>
+<li><strong>Where am I?</strong> What fraction of the book is complete, broken down by build step.</li>
+<li><strong>What's next?</strong> Which task should I run right now, and how much will it cost?</li>
+<li><strong>Will I finish in budget?</strong> How does pending work compare against my plan's 5-hour token window?</li>
+<li><strong>Which book am I working on?</strong> Switch between books without changing code.</li>
+</ol>
+<p>The goals stated in the home page (<a href="../">index.md</a>) drive the requirements below: track progress, view past token usage, predict tokens needed, surface burn-down charts, list required and optional tasks, recommend the next task, and remind authors that not every step needs the most expensive model.</p>
+<hr />
+<h2 id="2-stakeholders-and-user-roles">2. Stakeholders and User Roles</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Description</th>
+<th>Primary Concerns</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Author</strong></td>
+<td>The person writing the textbook. Drives most interaction.</td>
+<td>Progress, what's next, what it costs.</td>
+</tr>
+<tr>
+<td><strong>Editor / Reviewer</strong></td>
+<td>Reviews drafts, transitions sections from <code>drafted</code> → <code>reviewed</code> → <code>published</code>.</td>
+<td>Section drill-down, child item lists, status counts.</td>
+</tr>
+<tr>
+<td><strong>Project Lead</strong></td>
+<td>Tracks multiple books at once.</td>
+<td>Book selector, comparing scope/progress between books.</td>
+</tr>
+<tr>
+<td><strong>Onboarding Reader</strong></td>
+<td>New to intelligent-textbook generation.</td>
+<td>The DAG of build steps, the description of each step.</td>
+</tr>
+</tbody>
+</table>
+<p>The dashboard MUST serve all four roles from the same UI without role-specific modes or logins.</p>
+<hr />
+<h2 id="3-glossary">3. Glossary</h2>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Step</strong> / <strong>Section</strong></td>
+<td>A unit of work in the textbook build process (e.g. <em>Course Description</em>, <em>Learning Graph</em>, <em>Quiz</em>). Defined in <code>workflow-steps.json</code>. The two terms are interchangeable; the JSON uses <em>step</em>, the UI uses <em>section</em>.</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>One of <code>not-started</code>, <code>drafted</code>, <code>reviewed</code>, <code>published</code>. See §6.1.</td>
+</tr>
+<tr>
+<td><strong>Aggregate section</strong></td>
+<td>A section with a <code>children</code> array (e.g. <em>Chapters</em>, <em>Microsims</em>). Its progress and status roll up from its children.</td>
+</tr>
+<tr>
+<td><strong>Leaf section</strong></td>
+<td>A section without children. Its progress is determined entirely by its own status.</td>
+</tr>
+<tr>
+<td><strong>Book status file</strong></td>
+<td>A per-book JSON in <code>docs/book-data/&lt;slug&gt;.json</code> describing one book's project metadata + per-section status.</td>
+</tr>
+<tr>
+<td><strong>Manifest</strong></td>
+<td><code>docs/book-data/books.json</code> — the list of books the selector renders. Auto-generated by <a href="../mkdocs-hooks/sync_books_manifest.py">mkdocs-hooks/sync_books_manifest.py</a>.</td>
+</tr>
+<tr>
+<td><strong>Slug</strong></td>
+<td>A book's filename stem (e.g. <code>algebra-book-status</code> for <code>algebra-book-status.json</code>). Used as the <code>?book=</code> query parameter.</td>
+</tr>
+<tr>
+<td><strong>Window</strong></td>
+<td>The rolling 5-hour token allowance on Claude Pro / Max plans. Sized by <code>PROJECT.sessionBudget[plan]</code>.</td>
+</tr>
+<tr>
+<td><strong>Burn</strong></td>
+<td>A bulk run of every pending task, used to spend remaining window tokens before they expire.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="4-architecture-overview">4. Architecture Overview</h2>
+<div class="highlight"><pre><span></span><code>┌──────────────────────────┐    fetch     ┌────────────────────────────┐
+│  book-dashboard.html     │─────────────▶│  workflow-steps.json       │
+│   (React via Babel-std)  │              │  (DAG, constants)          │
+│                          │              ├────────────────────────────┤
+│  data.js (bootstrap) ────┼─────────────▶│  ../book-data/books.json   │
+│  app.jsx (App)           │              │  (manifest)                │
+│  components.jsx          │              ├────────────────────────────┤
+│  helpers.jsx             │─────────────▶│  ../book-data/&lt;slug&gt;.json  │
+│  next-task.jsx           │              │  (per-book status)         │
+│  burn.jsx                │              └────────────────────────────┘
+│  tweaks-panel.jsx        │                          ▲
+└──────────────────────────┘                          │
+                                                      │ regenerated on
+                                                      │ every mkdocs build
+                                                      │
+                                              ┌───────┴──────────┐
+                                              │ mkdocs-hooks/    │
+                                              │  sync_books_     │
+                                              │  manifest.py     │
+                                              └──────────────────┘
+</code></pre></div>
+<p>The dashboard runs entirely client-side. There is no backend. Data is read from three JSON files at startup, merged into the legacy globals (<code>window.SECTIONS</code>, <code>window.PROJECT</code>, <code>window.STATUS_WEIGHT</code>, <code>window.STATUS_META</code>), and React mounts only after <code>window.DATA_READY</code> resolves.</p>
+<hr />
+<h2 id="5-data-model">5. Data Model</h2>
+<h3 id="51-workflow-stepsjson-schema">5.1 <code>workflow-steps.json</code> schema</h3>
+<p>Authoritative shared definition; one file for all books.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;constants&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;statusWeight&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;&lt;status&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;</span><span class="mf">0..1</span><span class="err">&gt;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;statusMeta&quot;</span><span class="p">:</span><span class="w">   </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;&lt;status&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;label&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;dot&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">cssVar</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;fg&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">cssVar</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;bg&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">cssVar</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;steps&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w">              </span><span class="s2">&quot;kebab-case-id&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w">            </span><span class="s2">&quot;Display name&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;short&quot;</span><span class="p">:</span><span class="w">           </span><span class="s2">&quot;Short label for narrow space&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;description&quot;</span><span class="p">:</span><span class="w">     </span><span class="s2">&quot;1-3 sentence description&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;dependsOn&quot;</span><span class="p">:</span><span class="w">       </span><span class="p">[</span><span class="s2">&quot;id-of-prerequisite-step&quot;</span><span class="p">,</span><span class="w"> </span><span class="err">...</span><span class="p">],</span>
+<span class="w">      </span><span class="nt">&quot;childIdPrefix&quot;</span><span class="p">:</span><span class="w">   </span><span class="s2">&quot;ch&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="s2">&quot;sim&quot;</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">&lt;abse</span><span class="kc">nt</span><span class="w"> </span><span class="kc">f</span><span class="err">or</span><span class="w"> </span><span class="err">lea</span><span class="kc">f</span><span class="w"> </span><span class="err">s</span><span class="kc">te</span><span class="err">ps&gt;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Constraints (CON-WS-*):</strong>
+- <strong>CON-WS-1:</strong> Every <code>id</code> MUST be unique within <code>steps</code>.
+- <strong>CON-WS-2:</strong> Every entry in <code>dependsOn</code> MUST refer to another step's <code>id</code> in the same file.
+- <strong>CON-WS-3:</strong> The set of <code>dependsOn</code> edges MUST form a DAG (no cycles).
+- <strong>CON-WS-4:</strong> <code>statusWeight</code> MUST contain exactly the four keys <code>not-started</code>, <code>drafted</code>, <code>reviewed</code>, <code>published</code>, with values in <code>[0,1]</code> monotonically non-decreasing in that order.
+- <strong>CON-WS-5:</strong> <code>statusMeta</code> MUST contain entries for the same four keys.
+- <strong>CON-WS-6:</strong> Steps with <code>childIdPrefix</code> are aggregate; steps without are leaf. The book status file MUST match this shape (see CON-BS-3).</p>
+<h3 id="52-book-status-file-schema">5.2 Book status file schema</h3>
+<p>One file per book, at <code>docs/book-data/&lt;slug&gt;.json</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;project&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w">           </span><span class="s2">&quot;Display title&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;subtitle&quot;</span><span class="p">:</span><span class="w">        </span><span class="s2">&quot;Free-form subtitle&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w">          </span><span class="s2">&quot;Author or You&quot;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;costPerMTokens&quot;</span><span class="p">:</span><span class="w">  </span><span class="err">&lt;</span><span class="kc">nu</span><span class="err">mber&gt;</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;sessionBudget&quot;</span><span class="p">:</span><span class="w">   </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;pro&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;i</span><span class="kc">nt</span><span class="err">&gt;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;max&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;i</span><span class="kc">nt</span><span class="err">&gt;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">  </span><span class="p">},</span>
+<span class="w">  </span><span class="nt">&quot;sections&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;&lt;step-id&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// leaf shape:</span>
+<span class="w">      </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w">       </span><span class="s2">&quot;&lt;status&gt;&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;tokensTarget&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;i</span><span class="kc">nt</span><span class="err">&gt;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;tokensDone&quot;</span><span class="p">:</span><span class="w">   </span><span class="err">&lt;i</span><span class="kc">nt</span><span class="err">&gt;</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nt">&quot;&lt;aggregate-step-id&gt;&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="c1">// aggregate shape:</span>
+<span class="w">      </span><span class="nt">&quot;countLabel&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;12 chapters&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;children&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;n&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;i</span><span class="kc">nt</span><span class="err">&gt;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">s</span><span class="kc">tr</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;status&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;tokens&quot;</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;i</span><span class="kc">nt</span><span class="err">&gt;</span><span class="w"> </span><span class="p">}</span>
+<span class="w">      </span><span class="p">]</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Constraints (CON-BS-*):</strong>
+- <strong>CON-BS-1:</strong> Every <code>&lt;step-id&gt;</code> key in <code>sections</code> MUST be the <code>id</code> of a step in <code>workflow-steps.json</code>. Unknown ids are ignored by the loader.
+- <strong>CON-BS-2:</strong> Steps that exist in workflow but are missing from <code>sections</code> default to <code>status: "not-started"</code>, <code>tokensTarget: 0</code>, <code>tokensDone: 0</code> (see DM-2).
+- <strong>CON-BS-3:</strong> A section entry's shape MUST match its workflow step's kind: leaf step → leaf shape, aggregate step → aggregate shape.
+- <strong>CON-BS-4:</strong> <code>tokensDone &lt;= tokensTarget</code> SHOULD hold. The UI does not crash if violated, but <code>Math.round((done/target)*100)</code> may exceed 100.
+- <strong>CON-BS-5:</strong> Each child's <code>n</code> SHOULD be unique within its parent (it becomes part of the synthesized DOM id). Duplicate <code>n</code> values cause React key collisions.</p>
+<h3 id="53-booksjson-manifest-schema">5.3 <code>books.json</code> manifest schema</h3>
+<div class="highlight"><pre><span></span><code><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;slug&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&lt;filename-stem&gt;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Display title from project.title&quot;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>This file is <strong>regenerated by <a href="../mkdocs-hooks/sync_books_manifest.py">mkdocs-hooks/sync_books_manifest.py</a></strong> on every build. Hand edits will be overwritten.</p>
+<h3 id="54-data-merge-dm-requirements">5.4 Data merge — DM-* requirements</h3>
+<p><strong>DM-1 (Loader globals):</strong> <a href="../dashboard/data.js">data.js</a> MUST set the following globals before resolving <code>window.DATA_READY</code>:</p>
+<ul>
+<li><code>window.WORKFLOW</code> — the entire workflow JSON</li>
+<li><code>window.PROJECT</code> — <code>&lt;book&gt;.project</code></li>
+<li><code>window.STATUS_WEIGHT</code> — <code>workflow.constants.statusWeight</code></li>
+<li><code>window.STATUS_META</code> — <code>workflow.constants.statusMeta</code></li>
+<li><code>window.SECTIONS</code> — the merged array (see DM-2)</li>
+<li><code>window.BOOKS</code> — the manifest array</li>
+<li><code>window.CURRENT_BOOK</code> — the slug currently loaded</li>
+</ul>
+<p><strong>DM-2 (Merged section shape):</strong> For each <code>step</code> in <code>workflow.steps</code>, <code>SECTIONS</code> MUST contain a corresponding entry built as follows:</p>
+<ul>
+<li>Always: <code>{ id, name, short, description }</code> from the workflow step.</li>
+<li>If <code>step.childIdPrefix</code> is present:</li>
+<li><code>countLabel</code> ← book status <code>countLabel</code> (or <code>undefined</code>)</li>
+<li><code>children</code> ← book status children, each augmented with <code>id: \</code>${step.childIdPrefix}-${c.n}``</li>
+<li>Else (leaf):</li>
+<li><code>status</code> ← book status <code>status</code> or <code>"not-started"</code></li>
+<li><code>tokensTarget</code> ← book status <code>tokensTarget</code> or <code>0</code></li>
+<li><code>tokensDone</code> ← book status <code>tokensDone</code> or <code>0</code></li>
+</ul>
+<p><strong>DM-3 (Section order):</strong> <code>SECTIONS</code> MUST preserve the order of <code>workflow.steps</code>. The progress bar, overview grid, and next-task prioritization all depend on this order.</p>
+<p><strong>DM-4 (Selected book):</strong> The slug to load comes from <code>?book=&lt;slug&gt;</code> in the page URL; if absent, the loader defaults to <code>gen-ai-book-status</code>. The default MUST be a slug that exists in the manifest of any committed deployment.</p>
+<hr />
+<h2 id="6-functional-requirements">6. Functional Requirements</h2>
+<h3 id="61-status-lifecycle-fr-status-">6.1 Status Lifecycle (FR-STATUS-*)</h3>
+<p>The four statuses form an ordered progression: <code>not-started</code> → <code>drafted</code> → <code>reviewed</code> → <code>published</code>.</p>
+<div class="highlight"><pre><span></span><code>                   ┌────────────┐
+                   │ not-started│
+                   └──────┬─────┘
+                          │ author writes draft
+                          ▼
+                   ┌────────────┐
+                   │  drafted   │
+                   └──────┬─────┘
+                          │ reviewer signs off
+                          ▼
+                   ┌────────────┐
+                   │  reviewed  │
+                   └──────┬─────┘
+                          │ author marks complete
+                          ▼
+                   ┌────────────┐
+                   │ published  │
+                   └────────────┘
+</code></pre></div>
+<ul>
+<li><strong>FR-STATUS-1:</strong> Each leaf section and each child item has exactly one status from this set.</li>
+<li><strong>FR-STATUS-2:</strong> An aggregate section's <em>rollup</em> status is computed from its children per <a href="../dashboard/helpers.jsx">helpers.jsx</a> <code>sectionRollupStatus</code>:</li>
+<li>All children <code>published</code> → <code>published</code></li>
+<li>All children <code>not-started</code> → <code>not-started</code></li>
+<li>All children <code>reviewed</code> (none <code>not-started</code>, none <code>drafted</code>, none <code>published</code>) → <code>reviewed</code></li>
+<li>Otherwise → <code>drafted</code> (interpreted as "in progress")</li>
+<li><strong>FR-STATUS-3:</strong> Each status is rendered with a colored dot whose CSS variable comes from <code>STATUS_META[status].dot</code>. The four colors MUST be visually distinct. Current palette: gray-300, amber-500, blue-500, green-500.</li>
+</ul>
+<h3 id="62-book-loading-and-selection-fr-load-">6.2 Book Loading and Selection (FR-LOAD-*)</h3>
+<ul>
+<li><strong>FR-LOAD-1:</strong> On page load, the dashboard MUST fetch <code>workflow-steps.json</code>, <code>../book-data/books.json</code>, and <code>../book-data/&lt;slug&gt;.json</code> in parallel and only mount React after all three resolve.</li>
+<li><strong>FR-LOAD-2:</strong> The page URL accepts a <code>?book=&lt;slug&gt;</code> query parameter. The slug names a status file in <code>book-data/</code> without the <code>.json</code> extension.</li>
+<li><strong>FR-LOAD-3:</strong> If <code>?book=</code> is omitted, the default slug <code>gen-ai-book-status</code> MUST be used.</li>
+<li><strong>FR-LOAD-4:</strong> A <code>&lt;select&gt;</code> book-selector MUST render in the topbar listing every entry in the manifest, with the currently loaded book preselected.</li>
+<li><strong>FR-LOAD-5:</strong> Choosing a different book in the selector MUST navigate to the same URL with <code>?book=&lt;new-slug&gt;</code> and reload, re-bootstrapping the dashboard with the new book's data.</li>
+<li><strong>FR-LOAD-6:</strong> When the manifest contains fewer than 2 entries, the selector MUST hide itself.</li>
+</ul>
+<h3 id="63-header-title-and-overall-progress-fr-header-">6.3 Header — Title and Overall Progress (FR-HEADER-*)</h3>
+<ul>
+<li><strong>FR-HEADER-1:</strong> The book's <code>project.title</code> MUST appear as the page H1.</li>
+<li><strong>FR-HEADER-2:</strong> The book's <code>project.subtitle</code> MUST appear directly below as a smaller line.</li>
+<li><strong>FR-HEADER-3:</strong> A large numeric overall-percent readout MUST display:
+  <div class="highlight"><pre><span></span><code>round(  Σ sectionDoneTokens(s)  /  Σ sectionTargetTokens(s)  * 100 )
+</code></pre></div>
+  computed across every <code>s</code> in <code>SECTIONS</code>.</li>
+<li><strong>FR-HEADER-4:</strong> The denominator above MUST be <code>&gt; 0</code> for any reasonable book; if a book has zero total target tokens the readout MAY render <code>NaN%</code> (the UI does not need to special-case this).</li>
+</ul>
+<h3 id="64-progress-bar-fr-prog-">6.4 Progress Bar (FR-PROG-*)</h3>
+<p>A horizontal segmented bar where each segment is one section.</p>
+<ul>
+<li><strong>FR-PROG-1:</strong> Segment widths MUST be proportional to <code>sectionTargetTokens(s) / Σ sectionTargetTokens</code>. Larger sections get wider segments.</li>
+<li><strong>FR-PROG-2:</strong> Each segment's fill MUST be <code>Math.round(sectionProgress(s) * 100)%</code>, where <code>sectionProgress</code> is defined in <a href="../dashboard/helpers.jsx">helpers.jsx</a>.</li>
+<li><strong>FR-PROG-3:</strong> Each segment's color comes from <code>sectionRollupStatus(s)</code> per FR-STATUS-2 / FR-STATUS-3.</li>
+<li><strong>FR-PROG-4:</strong> Clicking a segment MUST select that section (open the detail panel). Clicking the already-selected segment MUST deselect.</li>
+<li><strong>FR-PROG-5:</strong> A row of segment labels (using <code>s.short</code>) MUST appear directly below the bar with the same widths and selection behavior.</li>
+<li><strong>FR-PROG-6:</strong> A legend MUST list all four statuses with their colored dots.</li>
+</ul>
+<h3 id="65-summary-cards-fr-summary-">6.5 Summary Cards (FR-SUMMARY-*)</h3>
+<p>Four cards below the progress bar:</p>
+<ul>
+<li><strong>FR-SUMMARY-1 (Overall):</strong> Card 1 shows overall percent + <code>formatTokens(totalDone) of formatTokens(totalTarget)</code>.</li>
+<li><strong>FR-SUMMARY-2 (Total budget):</strong> Card 2 shows the total target token count and its dollar cost at <code>PROJECT.costPerMTokens</code>. Hidden if "Show token estimates" is off (see FR-TWEAK-1).</li>
+<li><strong>FR-SUMMARY-3 (Time):</strong> Card 3 shows <code>~ceil(remaining / 80_000) days</code> as a rough completion estimate.</li>
+<li><strong>FR-SUMMARY-4 (Sessions):</strong> Card 4 shows <code>ceil(remaining / sessionBudget[plan])</code> 5-hour sessions left, with an inline Pro/Max toggle that updates <code>plan</code> for the whole dashboard.</li>
+</ul>
+<h3 id="66-overview-grid-and-detail-panel-fr-detail-">6.6 Overview Grid and Detail Panel (FR-DETAIL-*)</h3>
+<ul>
+<li><strong>FR-DETAIL-1:</strong> When no section is selected, the dashboard MUST render an <em>Overview Grid</em> — one tile per section — with <code>name</code>, optional <code>countLabel</code>, percent fill, and a small bar.</li>
+<li><strong>FR-DETAIL-2:</strong> Clicking a tile (or a progress segment / segment label) MUST select that section.</li>
+<li><strong>FR-DETAIL-3:</strong> When a section is selected, the dashboard MUST render the <em>Detail Panel</em> with:</li>
+<li>Breadcrumb back-link returning to the overview</li>
+<li>Section name + <code>countLabel</code> if aggregate</li>
+<li>Status pill (rollup status for aggregate)</li>
+<li>Description</li>
+<li>Action row: Generate, Preview, Regenerate, Mark complete, Notes (these are visual placeholders in v1 — see §10)</li>
+<li>Stats sidebar: percent, tokens estimated, tokens generated, estimated cost, "last updated"</li>
+<li><strong>FR-DETAIL-4:</strong> For aggregate sections, the Detail Panel MUST show:</li>
+<li>Status counts row (Published / Reviewed / Drafted / To do)</li>
+<li>"{N} items" with an expand toggle</li>
+<li>When expanded: numbered child rows with title, token count, and status pill</li>
+</ul>
+<h3 id="67-run-next-task-fr-next-">6.7 Run Next Task (FR-NEXT-*)</h3>
+<ul>
+<li><strong>FR-NEXT-1:</strong> The dashboard MUST surface a "Run next task" card prominently (between the summary strip and the detail shell).</li>
+<li><strong>FR-NEXT-2:</strong> The recommended task is selected by <code>pickNextTask()</code> in <a href="../dashboard/next-task.jsx">next-task.jsx</a>, which prioritizes:</li>
+<li><code>drafted</code> items first (need review / completion polish)</li>
+<li><code>not-started</code> items next</li>
+<li>Within a tier, the first item encountered in section order (DM-3)</li>
+<li><code>published</code> items are never recommended</li>
+<li><strong>FR-NEXT-3:</strong> If every section and every child is <code>published</code>, the card MUST show "All tasks complete 🎉" instead of being clickable.</li>
+<li><strong>FR-NEXT-4:</strong> Clicking the card opens a modal with: status pill, full description, estimated clock time, tokens for this task, window-remaining-after, dollar cost, and a mini-bar visualizing this task's chunk of the session window.</li>
+<li><strong>FR-NEXT-5:</strong> The modal MUST close on click outside, on the close button, and on <code>Escape</code>.</li>
+<li><strong>FR-NEXT-6:</strong> The "Run task" button in the modal is a placeholder action in v1 — clicking it dismisses the modal.</li>
+</ul>
+<h3 id="68-burn-tokens-fr-burn-">6.8 Burn Tokens (FR-BURN-*)</h3>
+<ul>
+<li><strong>FR-BURN-1:</strong> A "Got tokens to burn?" rail MUST appear below the detail shell with a Burn Tokens button.</li>
+<li><strong>FR-BURN-2:</strong> The button opens a modal that lists every pending (non-<code>published</code>) item from <code>SECTIONS</code>, with checkboxes (all preselected by default).</li>
+<li><strong>FR-BURN-3:</strong> The modal header MUST display: window-resets-in clock (h:mm:ss, decreasing), tokens left in window, and selected/burning total.</li>
+<li><strong>FR-BURN-4:</strong> The user MUST be able to choose <code>parallel</code> or <code>sequential</code> execution mode and the chosen mode persists for the duration of the modal session.</li>
+<li><strong>FR-BURN-5:</strong> When selected total &gt; tokens-left-in-window, the modal MUST show an over-budget warning citing the overage in tokens.</li>
+<li><strong>FR-BURN-6:</strong> "Burn Now" runs an animation: in <code>parallel</code> mode every selected task starts at t=0 and completes after a randomized 6–14s; in <code>sequential</code> mode tasks are chained, each taking 4–8s.</li>
+<li><strong>FR-BURN-7:</strong> During burn, checkboxes and mode-radios MUST be disabled.</li>
+<li><strong>FR-BURN-8:</strong> When all tasks reach <code>progress === 1</code>, the modal MUST switch to "done" state with a "Run again" button.</li>
+<li><strong>FR-BURN-9:</strong> The window-resets-in clock turns urgent (red) when remaining time &lt; 30 minutes.</li>
+<li><strong>FR-BURN-10:</strong> The modal MUST close on click outside, on close button, and on <code>Escape</code>.</li>
+</ul>
+<h3 id="69-tweaks-panel-fr-tweak-">6.9 Tweaks Panel (FR-TWEAK-*)</h3>
+<ul>
+<li><strong>FR-TWEAK-1:</strong> A "Show token estimates" toggle hides every UI element with the <code>tokens-only</code> CSS class when off. It defaults from <code>window.TWEAK_DEFAULTS.showTokens</code> (set in <a href="../dashboard/book-dashboard.html">book-dashboard.html</a>).</li>
+<li><strong>FR-TWEAK-2:</strong> A "Density" radio toggles between <code>comfy</code> and <code>compact</code>, written to <code>document.documentElement.dataset.density</code>. CSS reads this to adjust spacing.</li>
+<li><strong>FR-TWEAK-3:</strong> A "Plan" radio toggles between <code>pro</code> and <code>max</code>. The same value is read by §6.5 (sessions left) and §6.7 (window remaining).</li>
+<li><strong>FR-TWEAK-4:</strong> Tweak changes MUST take effect immediately without page reload.</li>
+<li><strong>FR-TWEAK-5:</strong> The tweaks panel itself opens via the host-mode protocol (<code>__activate_edit_mode</code> postMessage) and is irrelevant to standalone use.</li>
+</ul>
+<h3 id="610-url-state-fr-url-">6.10 URL State (FR-URL-*)</h3>
+<ul>
+<li><strong>FR-URL-1:</strong> The currently selected book is encoded as <code>?book=&lt;slug&gt;</code> and is the only piece of state in the URL.</li>
+<li><strong>FR-URL-2:</strong> Other UI state (selected section, expanded child list, density, plan) is in-memory only and resets on reload.</li>
+<li><strong>FR-URL-3:</strong> Bookmarking <code>?book=&lt;slug&gt;</code> MUST always restore the same book.</li>
+</ul>
+<h3 id="611-build-pipeline-fr-build-">6.11 Build Pipeline (FR-BUILD-*)</h3>
+<ul>
+<li><strong>FR-BUILD-1:</strong> <a href="../mkdocs-hooks/sync_books_manifest.py">mkdocs-hooks/sync_books_manifest.py</a> MUST run on <code>mkdocs build</code> and on every <code>mkdocs serve</code> rebuild.</li>
+<li><strong>FR-BUILD-2:</strong> The hook MUST glob <code>docs/book-data/*.json</code>, exclude <code>books.json</code>, and write a manifest sorted by filename.</li>
+<li><strong>FR-BUILD-3:</strong> Each manifest entry's <code>title</code> MUST be the <code>project.title</code> from that book's status file; if missing, the filename stem is used as a fallback.</li>
+<li><strong>FR-BUILD-4:</strong> The hook MUST be idempotent: a run that produces identical content MUST NOT modify the file (avoiding spurious git diffs).</li>
+</ul>
+<hr />
+<h2 id="7-non-functional-requirements">7. Non-Functional Requirements</h2>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Requirement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>NFR-PERF-1</strong></td>
+<td>The dashboard MUST be interactive within 2 seconds on a modern laptop with all three JSON fetches served from <code>mkdocs serve</code> on localhost.</td>
+</tr>
+<tr>
+<td><strong>NFR-PERF-2</strong></td>
+<td>A book with up to 20 sections, each with up to 100 children, MUST render without perceptible lag.</td>
+</tr>
+<tr>
+<td><strong>NFR-A11Y-1</strong></td>
+<td>The book selector MUST be a native <code>&lt;select&gt;</code> (keyboard accessible).</td>
+</tr>
+<tr>
+<td><strong>NFR-A11Y-2</strong></td>
+<td>The next-task and burn modals MUST close on <code>Escape</code> (FR-NEXT-5, FR-BURN-10).</td>
+</tr>
+<tr>
+<td><strong>NFR-A11Y-3</strong></td>
+<td>Modal overlays MUST have <code>role="dialog"</code> and <code>aria-modal="true"</code>.</td>
+</tr>
+<tr>
+<td><strong>NFR-PORT-1</strong></td>
+<td>The dashboard MUST work in current Chrome, Firefox, and Safari. No IE11.</td>
+</tr>
+<tr>
+<td><strong>NFR-PORT-2</strong></td>
+<td>The dashboard MUST work behind any static file server (e.g. <code>mkdocs serve</code>, <code>python -m http.server</code>). It MAY fail under <code>file://</code> due to fetch/CORS restrictions; this is acceptable.</td>
+</tr>
+<tr>
+<td><strong>NFR-DEP-1</strong></td>
+<td>All third-party JS dependencies are loaded from public CDNs with SRI hashes (see <a href="../dashboard/book-dashboard.html">book-dashboard.html</a>).</td>
+</tr>
+<tr>
+<td><strong>NFR-OBS-1</strong></td>
+<td>The MkDocs hook MUST log a single info-level message when it regenerates the manifest, including the book count.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="8-cost-budget-model">8. Cost / Budget Model</h2>
+<ul>
+<li><strong>CB-1:</strong> Dollar cost is computed as <code>(tokens / 1_000_000) * PROJECT.costPerMTokens</code>. Currency is USD.</li>
+<li><strong>CB-2:</strong> A <em>5-hour session</em> spends <code>PROJECT.sessionBudget[plan]</code> output tokens.</li>
+<li><strong>CB-3:</strong> Sessions-left = <code>ceil( (Σ tokensTarget − Σ tokensDone) / sessionBudget[plan] )</code>.</li>
+<li><strong>CB-4:</strong> "Time to completion" uses 80,000 tokens / day as a working pace. This is heuristic; treat it as guidance, not a guarantee.</li>
+<li><strong>CB-5:</strong> The Burn modal hard-codes "220K tokens already used" as a session-window prelude. This is illustrative; future versions SHOULD source it from real session telemetry.</li>
+</ul>
+<hr />
+<h2 id="9-constraints">9. Constraints</h2>
+<ul>
+<li><strong>C-1:</strong> No backend. All state is either in-memory or in static JSON files.</li>
+<li><strong>C-2:</strong> No bundler step. JSX is transpiled in the browser by <code>@babel/standalone</code>.</li>
+<li><strong>C-3:</strong> All JSON files live under <code>docs/</code> so MkDocs serves them as static assets at predictable URLs.</li>
+<li><strong>C-4:</strong> The dashboard supports exactly one book at a time per page load. Multi-book overlays are out of scope.</li>
+<li><strong>C-5:</strong> "Last updated" timestamps in the Detail Panel are placeholder text in v1.</li>
+<li><strong>C-6:</strong> No authentication, no multi-user editing, no real-time collaboration. The dashboard is a read-only view of static data.</li>
+</ul>
+<hr />
+<h2 id="10-non-goals-explicit-exclusions">10. Non-Goals (Explicit Exclusions)</h2>
+<p>The following are intentionally <strong>not</strong> part of v1 and SHOULD NOT be built without an updated specification:</p>
+<ul>
+<li>Editing book data inline (status changes, token re-estimation). Status JSONs are edited by hand or by upstream tooling.</li>
+<li>Authenticated user sessions.</li>
+<li>Pulling real LLM session usage from any cloud provider's API.</li>
+<li>Mobile-first responsive layout. The dashboard targets wide laptop / desktop screens.</li>
+<li>Internationalization. UI strings are English-only.</li>
+<li>Accessibility audit beyond keyboard support and modal semantics. WCAG AA conformance is a future goal.</li>
+<li>The Detail Panel action buttons (Generate, Preview, Regenerate, Mark complete, Notes) are placeholders. Wiring them to actual model invocations is out of scope for v1.</li>
+<li>The Run-task button in the Run Next Task modal is also a placeholder.</li>
+</ul>
+<hr />
+<h2 id="11-dependencies-and-references">11. Dependencies and References</h2>
+<ul>
+<li><strong>React 18.3.1</strong> + <strong>react-dom 18.3.1</strong> via unpkg with SRI.</li>
+<li><strong>@babel/standalone 7.29.0</strong> via unpkg with SRI.</li>
+<li><strong>MkDocs Material</strong> (host theme — irrelevant to dashboard internals, but the dashboard ships inside an MkDocs site).</li>
+<li>Schemas above link the spec to the implementation files. When a schema field is renamed, <a href="../dashboard/data.js">data.js</a> and the <a href="acceptance-test-plan.md">acceptance-test-plan.md</a> MUST be updated in the same change.</li>
+</ul>
+<hr />
+<h2 id="12-change-log">12. Change Log</h2>
+<table>
+<thead>
+<tr>
+<th>Version</th>
+<th>Date</th>
+<th>Author</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Draft v1</td>
+<td>2026-05-06</td>
+<td>Claude (per Dan's request)</td>
+<td>Initial specification capturing the v1 implementation.</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.top", "toc.follow", "content.code.copy"], "search": "../assets/javascripts/workers/search.6ce7567c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.83f73b43.min.js"></script>
+      
+    
+  </body>
+</html>
